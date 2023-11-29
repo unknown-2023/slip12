@@ -1,2 +1,18 @@
-Write a python program to make Categorical values in numeric format for a given   
-dataset 
+Write a python program to make Categorical values in numeric format for a given dataset 
+
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+
+# Sample dataset
+data = {'Category': ['A', 'B', 'A', 'C', 'B', 'C', 'A']}
+df = pd.DataFrame(data)
+
+# Initialize LabelEncoder
+label_encoder = LabelEncoder()
+
+# Fit and transform the 'Category' column
+df['Category'] = label_encoder.fit_transform(df['Category'])
+
+# Display the transformed dataset
+print(df)
+
