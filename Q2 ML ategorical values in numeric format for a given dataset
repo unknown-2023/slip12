@@ -1,4 +1,4 @@
-Write a python program to make Categorical values in numeric format for a given dataset 
+Write a python program to make Categorical values in numeric format for a given dataset  
 
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
@@ -12,7 +12,11 @@ label_encoder = LabelEncoder()
 
 # Fit and transform the 'Category' column
 df['Category'] = label_encoder.fit_transform(df['Category'])
+df_onehot = pd.get_dummies(df, columns=['Category'], prefix='Category')
 
 # Display the transformed dataset
+print("Label Encoded DataFrame:")
 print(df)
 
+print("\nOne-Hot Encoded DataFrame:")
+print(df_onehot)
